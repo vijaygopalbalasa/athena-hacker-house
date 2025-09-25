@@ -33,20 +33,20 @@ const wagmiAdapter = new WagmiAdapter({
     storage: cookieStorage,
   }),
   ssr: true,
-  projectId: '80f9b73154dcae39b653674ecf802554',
+  projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || '80f9b73154dcae39b653674ecf802554',
   networks: [monadTestnet]
 })
 
 // Create the modal
 export const modal = createAppKit({
   adapters: [wagmiAdapter],
-  projectId: '80f9b73154dcae39b653674ecf802554',
+  projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || '80f9b73154dcae39b653674ecf802554',
   networks: [monadTestnet],
   defaultNetwork: monadTestnet,
   metadata: {
     name: 'WooSwap',
     description: 'The world\'s first gamified DEX where you build relationships with AI companions',
-    url: 'https://wooswap.com', // origin must match your domain & subdomain
+    url: process.env.NEXT_PUBLIC_APP_URL || 'https://wooswap-app.vercel.app', // origin must match your domain & subdomain
     icons: ['https://avatars.githubusercontent.com/u/37784886']
   },
   features: {
